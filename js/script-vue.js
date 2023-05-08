@@ -40,6 +40,9 @@ const app = Vue.createApp({
         stopAutoPlay() {
             clearInterval(this.interval);
         },
+        newAutoPlay() {
+            this.interval = setInterval(this.goDown, 3000);
+        }
     },
     created() {
         this.interval = setInterval(this.goDown, 3000);
