@@ -25,6 +25,7 @@ const app = Vue.createApp({
                 }
             ],
             activeGame: 0,
+            interval: "",
         }
     },
     methods: {
@@ -36,7 +37,13 @@ const app = Vue.createApp({
             this.activeGame++;
             this.activeGame > this.images.length - 1 ? this.activeGame = 0 : "";
         },
+        stopAutoPlay() {
+            clearInterval(this.interval);
+        },
     },
+    created() {
+        this.interval = setInterval(this.goDown, 3000);
+    }
 })
 
-app.mount(".container");
+app.mount("#app");
