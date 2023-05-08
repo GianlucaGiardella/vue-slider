@@ -9,20 +9,26 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+    <script src="js/script-vue.js" defer></script>
     <title>Carousel</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="foreground"></div>
-        <div class="list">
-            <button class="top" onclick="goUp()"><i class="fa-solid fa-chevron-up"></i></button>
-            <button class="bottom" onclick="goDown()"><i class="fa-solid fa-chevron-down"></i></button>
+        <div class="foreground">
+            <div v-for="(gameImage, index) in images" class="cover" :class="{active: index === activeGame}">
+                <img :src="gameImage.image">
+                <div>
+                    <h2>{{gameImage.title}}</h2>
+                    <p>{{gameImage.text}}</p>
+                </div>
+            </div>
         </div>
-        <div class="controls">
-            <button id="on_off" onclick="autoMode()">Start</button>
-            <button id="invert_mode" onclick="invertMode()">Invert</button>
+        <div class="list">
+            <img v-for="(gameImage, index) in images" :src="gameImage.image" :class="{active: index === activeGame}">
+            <button class="top" @click="goUp()"><i class="fa-solid fa-chevron-up"></i></button>
+            <button class="bottom" @click="goDown()"><i class="fa-solid fa-chevron-down"></i></button>
         </div>
     </div>
 </body>
