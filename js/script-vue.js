@@ -25,8 +25,6 @@ const app = Vue.createApp({
                 }
             ],
             activeGame: 0,
-            autoFlag: true,
-            invertFlag: true,
         }
     },
     methods: {
@@ -38,7 +36,7 @@ const app = Vue.createApp({
             this.activeGame++;
             this.activeGame > this.images.length - 1 ? this.activeGame = 0 : "";
         },
-    }
+    },
 })
 
 app.mount(".container");

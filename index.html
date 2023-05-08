@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="list">
-            <img v-for="(gameImage, index) in images" :src="gameImage.image" :class="{active: index === activeGame}">
+            <img v-for="(gameImage, index) in images" :src="gameImage.image" :class="{active: index === activeGame}" @click="activeGame = index">
             <button class="top" @click="goUp()"><i class="fa-solid fa-chevron-up"></i></button>
             <button class="bottom" @click="goDown()"><i class="fa-solid fa-chevron-down"></i></button>
         </div>
