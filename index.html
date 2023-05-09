@@ -17,7 +17,7 @@
 <body>
     <div class="container">
         <div id="app">
-            <div class="carousel" @mouseover="stopAutoPlay" @mouseleave="newAutoPlay">
+            <div class="carousel" @mouseover="stopAutoPlay" @mouseleave="startAutoPlay">
                 <div class="foreground">
                     <div v-for="(gameImage, index) in images" class="cover" :class="{active: index === activeGame}">
                         <img :src="gameImage.image">
