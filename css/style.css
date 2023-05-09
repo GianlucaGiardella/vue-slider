@@ -12,14 +12,14 @@ li {
     list-style: none;
 }
 
-.container,
+.carousel,
 .foreground,
 .list img,
 .list button {
     border: 1px solid black;
 }
 
-.container {
+.carousel {
     min-width: 700px;
     max-width: 1250px;
     margin: 7rem auto;

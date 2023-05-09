@@ -15,22 +15,24 @@
 </head>
 
 <body>
-    <div id="app">
-        <div class="container" @mouseover="stopAutoPlay" @mouseleave="newAutoPlay">
-            <div class="foreground">
-                <div v-for="(gameImage, index) in images" class="cover" :class="{active: index === activeGame}">
-                    <img :src="gameImage.image">
-                    <div>
-                        <h2>{{gameImage.title}}</h2>
-                        <p>{{gameImage.text}}</p>
+    <div class="container">
+        <div id="app">
+            <div class="carousel" @mouseover="stopAutoPlay" @mouseleave="newAutoPlay">
+                <div class="foreground">
+                    <div v-for="(gameImage, index) in images" class="cover" :class="{active: index === activeGame}">
+                        <img :src="gameImage.image">
+                        <div>
+                            <h2>{{gameImage.title}}</h2>
+                            <p>{{gameImage.text}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="list">
-                <img v-for="(gameImage, index) in images" :src="gameImage.image" :class="{active: index === activeGame}"
-                    @click="activeGame = index">
-                <button class="top" @click="goUp()"><i class="fa-solid fa-chevron-up"></i></button>
-                <button class="bottom" @click="goDown()"><i class="fa-solid fa-chevron-down"></i></button>
+                <div class="list">
+                    <img v-for="(gameImage, index) in images" :src="gameImage.image"
+                        :class="{active: index === activeGame}" @click="activeGame = index">
+                    <button class="top" @click="goUp()"><i class="fa-solid fa-chevron-up"></i></button>
+                    <button class="bottom" @click="goDown()"><i class="fa-solid fa-chevron-down"></i></button>
+                </div>
             </div>
         </div>
     </div>
